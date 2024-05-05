@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -55,8 +56,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
     </View>
   );
 }
-
-function Home(): React.JSX.Element {
+function Home({navigation}: {navigation: any}): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -66,7 +66,10 @@ function Home(): React.JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <Test />
-
+      <Button
+        title="Go to Braurus"
+        onPress={() => navigation.navigate('Braurus')}
+      />
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
