@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -19,7 +20,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Test from 'src/components/Test';
-import {useScreenNavigation} from 'src/screens/useScreenNavigation';
+import {ScreenName} from 'src/constant';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -52,7 +53,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 function Home(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const navigation = useScreenNavigation();
+  const navigation = useNavigation();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -63,7 +64,7 @@ function Home(): React.JSX.Element {
       <Test />
       <Button
         title="Go to Braurus"
-        onPress={() => navigation.navigate('Braurus')}
+        onPress={() => navigation.navigate(ScreenName.Braurus)}
       />
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
