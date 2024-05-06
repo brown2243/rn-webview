@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -26,6 +19,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Test from 'src/components/Test';
+import {useScreenNavigation} from 'src/screens/useScreenNavigation';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,8 +50,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
     </View>
   );
 }
-function Home({navigation}: {navigation: any}): React.JSX.Element {
+function Home(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const navigation = useScreenNavigation();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,

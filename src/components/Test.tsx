@@ -4,7 +4,7 @@ import {Text} from 'react-native';
 
 const StyledText = styled(Text)`
   color: red;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
 `;
 
